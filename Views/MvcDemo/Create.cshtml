@@ -1,0 +1,74 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model MeteredFareModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="row">
+    <div class="col">
+        <div class="text-center">
+            <h4>Metered Rate of Fare Calculator</h4>
+            <p>Built using Model-View-Controller pattern</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-12 text-center">
+        <h1>Book a taxi with our service</h1>
+    </div>
+</div>
+<form asp-action="Create">
+    <div class="row justify-content-center">
+        <div class="col-4 mb-3">
+            <div class="form-floating">
+                <input type="date" asp-for="StartDate" class="form-control" />
+                <label asp-for="StartDate">Pick a date</label>
+            </div>
+        </div>
+        <!-- Force a line break -->
+        <div class="w-100"></div>
+
+        <div class="col-4 mb-3">
+            <div class="form-floating">
+                <input type="time" asp-for="StartTime" class="form-control" />
+                <label asp-for="StartTime">Pick a start time</label>
+            </div>
+        </div>
+        <!-- Force a line break -->
+        <div class="w-100"></div>
+
+        <div class="col-4 mb-3">
+            <label asp-for="MilesTraveled"><b>MILES</b> traveled less than 6 miles per hour</label>
+            <input type="number" asp-for="MilesTraveled" class="form-control" />
+            <div id="helpBlock1" class="form-text">
+                Each mile traveled will add an additional $1.75 to total costs
+            </div>
+        </div>
+        <!-- Force a line break -->
+        <div class="w-100"></div>
+        <div class="col-4 mb-3">
+            <label asp-for="MinutesTraveled"><b>MINUTES</b> traveled more than 6 miles per hour</label>
+            <input type="number" asp-for="MinutesTraveled" class="form-control" />
+            <div id="helpBlock2" class="form-text">
+                Each miniute will add an additional $0.35 to total costs
+            </div>
+        </div>
+        <div class="col-12 text-center">
+            <input type="submit" value="Confirm" class="btn btn-primary" />
+            <div id="helpBlock3" class="form-text">
+                Your total costs will appear below
+            </div>
+        </div>
+        <hr />
+        <div class="col-12 text-center">
+            <div class="row">
+                <label asp-for="TotalPrice" class="col-2 col-form-label" hidden>Total Price</label>
+                <input type="number" asp-for="TotalPrice" class="h1 col-10 form-control-plaintext text-center" readonly />
+            </div>    
+        </div>
+    </div>
+</form>
